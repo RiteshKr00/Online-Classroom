@@ -12,7 +12,7 @@ var corsOptions = {
 };
 // NEW - replace custom middleware with the cors() middleware
 app.use(cors(corsOptions));
-// app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 mongoose.connect(process.env.MONGOURI, {
   useNewUrlParser: true,
@@ -34,9 +34,9 @@ require("./app/routes/auth.routes")(app);
 require("./app/routes/teacher.routes")(app);
 require("./app/routes/student.routes")(app);
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(process.env.PORT, () => {
   console.log("Server is runnng at port", process.env.PORT);
