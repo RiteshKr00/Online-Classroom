@@ -6,6 +6,7 @@ import { UserContext } from "../../App";
 function Navbar() {
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
+  
   console.log(state);
   const NavOption = () => {
     if (state) {
