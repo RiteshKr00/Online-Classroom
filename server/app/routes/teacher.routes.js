@@ -21,4 +21,14 @@ module.exports = function (app) {
     [authJwtTeacher.verifyToken, authJwtTeacher.verifyTeacher],
     teacherController.classCreated
   );
+  app.post(
+    "/api/teacher/createassignment",
+    [authJwtTeacher.verifyToken, authJwtTeacher.verifyTeacher],
+    teacherController.createAssignment
+  );
+  app.get(
+    "/api/teacher/assignmentcreated",
+    [authJwtTeacher.verifyToken, authJwtTeacher.verifyTeacher],
+    teacherController.AssignmentCreated
+  );
 };

@@ -61,7 +61,7 @@ function Navbar() {
         );
       }
     } else {
-      console.log("oogrdfew")
+      console.log("oogrdfew");
       return (
         <>
           <Link
@@ -102,7 +102,17 @@ function Navbar() {
           className="ml-3 text-xl title-font font-medium text-red mb-4 md:mb-0"
           to={"/"}
         >
-          <h1> Online Classroom</h1>
+          <Link
+            to={
+              state
+                ? state.role === "Student"
+                  ? "/classjoined"
+                  : "classcreated"
+                : "/"
+            }
+          >
+            <h1> Online Classroom</h1>
+          </Link>
         </Link>
 
         <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-700	flex flex-wrap items-center text-base justify-center">

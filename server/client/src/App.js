@@ -13,6 +13,10 @@ import ClassesJoined from "./Components/Classes/ClassesJoined";
 import CreateClass from "./Components/Classes/CreateClass";
 import JoinClass from "./Components/Classes/JoinClass";
 import { reducer, initialState } from "./reducers/useReducer";
+import SubjectDashboard from "./Components/SubjectDashboard/SubjectDashboard";
+import SubjectDashboardStudent from "./Components/SubjectDashboard/SubjectDashboardStudent";
+import CreateAssignment from "./Components/CreateAssignment/CreateAssignment";
+
 export const UserContext = createContext();
 const Routing = () => {
   const history = useHistory();
@@ -61,6 +65,15 @@ const Routing = () => {
       </Route>{" "}
       <Route exact path="/joinclass">
         <JoinClass />
+      </Route>{" "}
+      <Route path="/subjectdashboard/:subjectId">
+        <SubjectDashboard />
+      </Route>
+      <Route path="/subjectdashboardstudent/:subjectId">
+        <SubjectDashboardStudent />
+      </Route>
+      <Route path="/createassignment/:subjectId">
+        <CreateAssignment />
       </Route>
     </Switch>
   );
