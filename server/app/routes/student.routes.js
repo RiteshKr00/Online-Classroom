@@ -21,4 +21,9 @@ module.exports = function (app) {
     [authJwtStudent.verifyToken, authJwtStudent.verifyStudent],
     studentController.classJoined
   );
+  app.get(
+    "/api/student/subjectassignment",
+    [authJwtStudent.verifyToken, authJwtStudent.verifyStudent],
+    studentController.subjectAssignment
+  );
 };

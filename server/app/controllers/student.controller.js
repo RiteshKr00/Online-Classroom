@@ -2,6 +2,7 @@ const db = require("../models");
 const Student = db.student;
 const Teacher = db.teacher;
 const Subject = db.subject;
+const Assignment = db.assignment;
 
 exports.joinClass = async (req, res) => {
   try {
@@ -44,6 +45,20 @@ exports.classJoined = async (req, res) => {
     );
     console.log(student);
     res.status(200).send(student.classJoined);
+  } catch (err) {
+    res.status(500).send({ err: err });
+  }
+};
+exports.subjectAssignment = async (req, res) => {
+  try {
+    
+    console.log(req.query.subjectId);
+    
+    const assignments = await Assignment.find({
+      subject: req.query.subjectId,
+    });
+    console.log(assignments);
+    res.status(200).send(assignments);
   } catch (err) {
     res.status(500).send({ err: err });
   }
