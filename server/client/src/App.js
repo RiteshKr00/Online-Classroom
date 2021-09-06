@@ -16,6 +16,7 @@ import { reducer, initialState } from "./reducers/useReducer";
 import SubjectDashboard from "./Components/SubjectDashboard/SubjectDashboard";
 import SubjectDashboardStudent from "./Components/SubjectDashboard/SubjectDashboardStudent";
 import CreateAssignment from "./Components/CreateAssignment/CreateAssignment";
+import Profile from "./Components/Profile/Profile";
 
 export const UserContext = createContext();
 const Routing = () => {
@@ -65,6 +66,9 @@ const Routing = () => {
       </Route>{" "}
       <Route exact path="/joinclass">
         <JoinClass />
+      </Route>
+      <Route exact path="/profile">
+        <Profile />
       </Route>{" "}
       <Route path="/subjectdashboard/:subjectId">
         <SubjectDashboard />
