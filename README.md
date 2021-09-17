@@ -1,21 +1,59 @@
-ONLINE CLASSROOM
+# ONLINE CLASSROOM
+
 A Web app to create different subject , share assignment, test and meeting to students.
+## Tagline
 
-Tech Used 
-MERN 
-Tailwind css,
-HeadLess-UI
 
-Live at
-https://onclassroom.herokuapp.com/
+## Problems It Solves
 
-Installation 
-1.Fork this repository  
-2.Clone it    
-3.Open cmd, and enter git clone "cloned repo name"
-4.go to root folder Open cmd, type "npm i"    
-5.go to client folder Open cmd type npm i
-6. Create a .env file and give Values
+## Live demo
+
+The site is deployed through Heroku, which you can view from [here](https://onclassroom.herokuapp.com/)  
+<!-- 
+## Demo video
+
+Checkout the complete demo video from [here]() -->
+
+## 🚀 Main Features
+
+<!-- - Interactive 3D Models
+- Chatbot Assistant
+ -->
+## 💻 Tech Stack
+
+- React Js
+- Tailwind CSS
+- NodeJs
+- Express
+- MongoDB
+
+## 🤝 Credits
+
+- SVG: [Storyset](https://storyset.com/)
+
+
+## Prerequisites
+
+Required to install and run the software:
+
+- [npm](https://www.npmjs.com/get-npm)
+
+## Installing and Running
+
+From the project folder,Follow these steps and run these commands in console (terminal) to install dependencies and run the app:
+
+```
+Fork this repository 
+Clone it    
+Open cmd, and enter git clone "cloned repo name"
+go to root folder Open cmd, type "npm i"    
+go to client folder Open cmd type npm i
+Create a .env file and give Values
 { MONGOURI PORT JWT_SEC }  env variables used  
-7.In cmd Of root folder type node app.js  
-8.In cmd Of client folder type  npm start.
+In cmd Of root folder type node app.js  
+In cmd Of client folder type  npm start.
+```
+
+## 🖼️ Some glimps of the site
+
+
