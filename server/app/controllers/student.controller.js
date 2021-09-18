@@ -6,7 +6,7 @@ const Assignment = db.assignment;
 
 exports.joinClass = async (req, res) => {
   try {
-    const { code } = req.body;
+    const { code, subjectId } = req.body;
     if (!code) {
       return res.status(400).send({ error: "please enter the code" });
     }
@@ -20,6 +20,9 @@ exports.joinClass = async (req, res) => {
     );
     console.log(isJoined);
     console.log(isJoined.classJoined);
+    const assignment = await Assignment.find({ subject: subjectId });
+    console.log(assignment);
+
     if (isJoined.classJoined.includes(subject._id)) {
       return res
         .status(200)
@@ -28,10 +31,11 @@ exports.joinClass = async (req, res) => {
     const student = await Student.findByIdAndUpdate(
       req.userId,
       {
-        $push: { classJoined: subject._id },
+        $push: { classJoined: subject._id, assignmentNotDone: assignment },
       },
       { new: true }
     ).select("-password");
+
     res.status(200).send({ message: "Class/Subject joined successfully!" });
   } catch (err) {
     res.status(500).send({ err: err });
@@ -51,14 +55,48 @@ exports.classJoined = async (req, res) => {
 };
 exports.subjectAssignment = async (req, res) => {
   try {
-    
     console.log(req.query.subjectId);
-    
+
     const assignments = await Assignment.find({
       subject: req.query.subjectId,
     });
     console.log(assignments);
     res.status(200).send(assignments);
+  } catch (err) {
+    res.status(500).send({ err: err });
+  }
+};
+exports.assignmentSubmit = async (req, res) => {
+  try {
+    console.log(req.body.assignmentId);
+    const student = await Student.findByIdAndUpdate(
+      req.userId,
+      {
+        $push: { assignmentDone: req.body.assignmentId },
+        $pull: { assignmentNotDone: req.body.assignmentId },
+      },
+      { new: true }
+    ).select("-password");
+
+    console.log(student);
+    res.status(200).send(student);
+  } catch (err) {
+    res.status(500).send({ err: err });
+  }
+};exports.assignmentUnSubmit = async (req, res) => {
+  try {
+    console.log(req.body.assignmentId);
+    const student = await Student.findByIdAndUpdate(
+      req.userId,
+      {
+        $pull: { assignmentDone: req.body.assignmentId },
+        $push: { assignmentNotDone: req.body.assignmentId },
+      },
+      { new: true }
+    ).select("-password");
+
+    console.log(student);
+    res.status(200).send(student);
   } catch (err) {
     res.status(500).send({ err: err });
   }

@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 import Toast from "../Toast/Toast";
 const axios = require("axios");
 const CreateAssignment = () => {
   const [details, setDetails] = useState("");
+  const [deadline, setDeadline] = useState();
+  console.log(deadline);
+
   const { subjectId } = useParams();
 
   const Create = async () => {
@@ -13,6 +19,7 @@ const CreateAssignment = () => {
         {
           details: details,
           subjectId: subjectId,
+          deadline: deadline,
         },
         {
           headers: {
@@ -53,6 +60,19 @@ const CreateAssignment = () => {
               onChange={(e) => setDetails(e.target.value)}
               rows={4}
               className="rounded bg-gradient-to-r from-green-200 to-blue-200 outline-none w-full my-2 py-2 border-b-4"
+            />
+          </div>
+          <div>
+            <label htmlFor="due">Due Date</label>
+            <DatePicker
+              id="due"
+              className={
+                "w-full  p-2 text-primary rounded-md transition duration-150 ease-in-out mb-4"
+              }
+              selected={deadline}
+              onChange={(date) => setDeadline(date)}
+              showTimeSelect
+              dateFormat="Pp"
             />
           </div>
           <div className="flex justify-center item-center">

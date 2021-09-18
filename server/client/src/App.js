@@ -17,7 +17,7 @@ import SubjectDashboard from "./Components/SubjectDashboard/SubjectDashboard";
 import SubjectDashboardStudent from "./Components/SubjectDashboard/SubjectDashboardStudent";
 import CreateAssignment from "./Components/CreateAssignment/CreateAssignment";
 import Profile from "./Components/Profile/Profile";
-
+import Landing from "./Components/Landing/Landing";
 export const UserContext = createContext();
 const Routing = () => {
   const history = useHistory();
@@ -35,12 +35,13 @@ const Routing = () => {
     if (user) {
       dispatch({ type: "USER", payload: user }); //search for token user details in browser
     } else {
-      if (!history.location.pathname.startsWith("/reset")) history.push("/");
+      if (!history.location.pathname.startsWith("/reset"))
+        history.push("/home");
     }
   }, []);
   return (
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/home">
         <Home />
       </Route>
       <Route exact path="/signupteacher">
@@ -88,6 +89,7 @@ function App() {
     <UserContext.Provider value={{ state, dispatch }}>
       <BrowserRouter>
         <Navbar />
+        <Landing />
         <Routing />
         <ToastContainer />
       </BrowserRouter>{" "}

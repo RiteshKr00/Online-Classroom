@@ -6,7 +6,7 @@ import { UserContext } from "../../App";
 function Navbar() {
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
-  
+
   console.log(state);
   const NavOption = () => {
     if (state) {
@@ -101,7 +101,7 @@ function Navbar() {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link
           className="ml-3 text-xl title-font font-medium text-red mb-4 md:mb-0"
-          to={"/"}
+          to={"/home"}
         >
           <Link
             to={
@@ -109,7 +109,7 @@ function Navbar() {
                 ? state.role === "Student"
                   ? "/classjoined"
                   : "classcreated"
-                : "/"
+                : "/home"
             }
           >
             <h1> Online Classroom</h1>
@@ -129,7 +129,7 @@ function Navbar() {
             onClick={() => {
               localStorage.clear();
               dispatch({ type: "CLEAR" });
-              history.push("/");
+              history.push("/home");
             }}
           >
             LogOut

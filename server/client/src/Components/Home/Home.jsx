@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../App";
-
 const Home = () => {
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
