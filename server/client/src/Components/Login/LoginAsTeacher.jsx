@@ -43,7 +43,7 @@ const LoginAsTeacher = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-300 ">
+    <div className="h-screen">
       <div className={"flex  py-8 "}>
         <div className="w-full max-w-md bg-blue-500 m-auto rounded-lg border border-gray-200 shadow-lg py-10 px-10 md:px-20">
           <h2 className="text-2xl text-center pt-4 pb-5 text-primary	">

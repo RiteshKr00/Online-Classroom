@@ -33,7 +33,7 @@ const ClassesCreated = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-blue-300 ">
+    <div className="h-screen p-10 ">
       <div className={" "}>
         <h1 className="text-2xl text-center py-2">SUBJECT (Created)</h1>
         <div className="flex flex-wrap py-4 justify-center">
@@ -45,9 +45,9 @@ const ClassesCreated = () => {
                 return (
                   <div
                     key={item._id}
-                    className="m-2 w-80 bg-blue-500 rounded-lg border border-gray-200 shadow-lg py-2 px-10 md:px-20"
+                    className="m-2 w-80 bg-primary rounded-lg border border-gray-200 shadow-lg py-2 px-10 md:px-20"
                   >
-                    <h2 className="text-2xl hover:underline text-center pt-4 pb-5 text-primary	">
+                    <h2 className="text-2xl hover:underline text-center pt-4 pb-5 	">
                       <Link to={`/subjectdashboard/${item._id}`}>
                         {" "}
                         {item.name}

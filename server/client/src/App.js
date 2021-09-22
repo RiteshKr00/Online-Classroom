@@ -18,6 +18,9 @@ import SubjectDashboardStudent from "./Components/SubjectDashboard/SubjectDashbo
 import CreateAssignment from "./Components/CreateAssignment/CreateAssignment";
 import Profile from "./Components/Profile/Profile";
 import Landing from "./Components/Landing/Landing";
+import Student from "./Components/Home/Student";
+import Teacher from "./Components/Home/Teacher";
+import ProtectedRoute from "./Components/Protected/ProtectedRoutes";
 export const UserContext = createContext();
 const Routing = () => {
   const history = useHistory();
@@ -35,61 +38,56 @@ const Routing = () => {
     if (user) {
       dispatch({ type: "USER", payload: user }); //search for token user details in browser
     } else {
-      if (!history.location.pathname.startsWith("/reset"))
-        history.push("/home");
+      // history.push("/");
     }
   }, []);
   return (
-    <Switch>
-      <Route exact path="/home">
-        <Home />
-      </Route>
-      <Route exact path="/signupteacher">
-        <SignUpAsTeacher />
-      </Route>{" "}
-      <Route exact path="/signupstudent">
-        <SignUpAsStudent />
-      </Route>
-      <Route exact path="/loginteacher">
-        <LoginAsTeacher />
-      </Route>
-      <Route exact path="/loginstudent">
-        <LoginAsStudent />
-      </Route>
-      <Route exact path="/classcreated">
-        <ClassesCreated />
-      </Route>
-      <Route exact path="/classjoined">
-        <ClassesJoined />
-      </Route>{" "}
-      <Route exact path="/createclass">
-        <CreateClass />
-      </Route>{" "}
-      <Route exact path="/joinclass">
-        <JoinClass />
-      </Route>
-      <Route exact path="/profile">
-        <Profile />
-      </Route>{" "}
-      <Route path="/subjectdashboard/:subjectId">
-        <SubjectDashboard />
-      </Route>
-      <Route path="/subjectdashboardstudent/:subjectId">
-        <SubjectDashboardStudent />
-      </Route>
-      <Route path="/createassignment/:subjectId">
-        <CreateAssignment />
-      </Route>
-    </Switch>
+    <>
+      {state !== null ? <Navbar /> : ""}
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/home" component={Home} />
+        <Route exact path="/teacher" component={Teacher} />
+        <Route exact path="/student" component={Student} />
+        <Route exact path="/signupteacher" component={SignUpAsTeacher} />
+        <Route exact path="/signupstudent" component={SignUpAsStudent} />
+        <Route exact path="/loginteacher" component={LoginAsTeacher} />
+        <Route exact path="/loginstudent" component={LoginAsStudent} />
+        <ProtectedRoute exact path="/classcreated" component={ClassesCreated}/>
+        {/* <Route exact path="/classcreated">
+          <ClassesCreated />
+        </Route> */}
+        <Route exact path="/classjoined">
+          <ClassesJoined />
+        </Route>{" "}
+        <Route exact path="/createclass">
+          <CreateClass />
+        </Route>{" "}
+        <Route exact path="/joinclass">
+          <JoinClass />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>{" "}
+        <Route path="/subjectdashboard/:subjectId">
+          <SubjectDashboard />
+        </Route>
+        <Route path="/subjectdashboardstudent/:subjectId">
+          <SubjectDashboardStudent />
+        </Route>
+        <Route path="/createassignment/:subjectId">
+          <CreateAssignment />
+        </Route>
+      </Switch>
+    </>
   );
 };
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <UserContext.Provider value={{ state, dispatch }}>
       <BrowserRouter>
-        <Navbar />
-        <Landing />
         <Routing />
         <ToastContainer />
       </BrowserRouter>{" "}
