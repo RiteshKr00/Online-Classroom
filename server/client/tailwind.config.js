@@ -1,12 +1,24 @@
+const colors = require("tailwindcss/colors");
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    colors: {
+      primary: "#FEDF08",
+      secondary: "#EFDAC0",
+      tertiary: "#ffffff",
+      black: colors.black,
+      white: colors.white,
+      red: colors.rose,
+      gray: colors.trueGray,
+    },
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["active"],
+    },
   },
   plugins: [],
-  
-}
+  important: true,
+};

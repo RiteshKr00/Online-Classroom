@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Toast from "../Toast/Toast";
+import Studentsvg from "../../assets/children.svg";
+
 const axios = require("axios");
 const SignUpAsStudent = () => {
   const [username, setUsername] = useState("");
@@ -45,13 +47,13 @@ const SignUpAsStudent = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-300">
-      <div className={" flex  py-8 "}>
-        <div className="w-full max-w-md bg-blue-500 m-auto rounded-lg border border-gray-200 shadow-lg py-10 px-10 md:px-20">
-          <h2 className="text-2xl text-center pt-4 pb-5 text-primary	">
-            Online Classroom
+    <div className="h-screen">
+      <div className={" bg-secondary p-2 "}>
+        <div className="w-full max-w-md bg-primary m-auto rounded-lg border border-gray-200 shadow-lg py-3 px-10 md:px-20">
+          <h2 className="text-2xl text-center  ">
+            <Link to={"/student"}>Student</Link>
           </h2>{" "}
-          <h3 className="text-center  pb-5 text-primary	">Student</h3>
+          <img className="mx-auto max-w-md" src={Studentsvg} alt="dfsd" />
           <div>
             <label htmlFor="username">Username</label>
             <input
@@ -107,8 +109,8 @@ const SignUpAsStudent = () => {
             <h2>
               Already have an account ?
               <Link
-                to="/login"
-                className="text-gray-300  hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium"
+                to="/loginstudent"
+                className="text-gray-900  hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium"
               >
                 Login
               </Link>

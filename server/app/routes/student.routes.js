@@ -26,4 +26,14 @@ module.exports = function (app) {
     [authJwtStudent.verifyToken, authJwtStudent.verifyStudent],
     studentController.subjectAssignment
   );
+  app.put(
+    "/api/student/assignmentsubmit",
+    [authJwtStudent.verifyToken, authJwtStudent.verifyStudent],
+    studentController.assignmentSubmit
+  );
+  app.put(
+    "/api/student/assignmentunsubmit",
+    [authJwtStudent.verifyToken, authJwtStudent.verifyStudent],
+    studentController.assignmentUnSubmit
+  );
 };

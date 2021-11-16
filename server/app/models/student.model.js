@@ -25,6 +25,18 @@ const Student = mongoose.model(
         ref: "Subject",
       },
     ],
+    assignmentDone: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Assignment",
+      },
+    ],
+    assignmentNotDone: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Assignment",
+      },
+    ],
   })
 );
 

@@ -10,7 +10,8 @@ function classNames(...classes) {
 const SubjectDashboardStudent = () => {
   const { subjectId } = useParams();
   console.log(subjectId);
-  console.log("object");
+  const [assign, setAssign] = useState([]);
+
   const FetchSubjectAssignment = async () => {
     try {
       //with get request data dont work use params to send data;
@@ -29,9 +30,7 @@ const SubjectDashboardStudent = () => {
 
       console.log(response);
       console.log(response.data);
-      setCategories((prevstate) => {
-        return { ...prevstate, Assignment: response.data };
-      });
+      setAssign(response.data);
       //   setClasses(response.data);
       //   console.log(classes);
       //   //   history.push("/loginteacher");

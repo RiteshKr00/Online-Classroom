@@ -6,7 +6,7 @@ import { UserContext } from "../../App";
 function Navbar() {
   const { state, dispatch } = useContext(UserContext);
   const history = useHistory();
-  
+
   console.log(state);
   const NavOption = () => {
     if (state) {
@@ -40,14 +40,14 @@ function Navbar() {
           <>
             <Link
               to="/joinclass"
-              className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium"
+              className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Join Class
             </Link>
 
             <Link
               to="/classjoined"
-              className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium"
+              className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Classes Joined
             </Link>
@@ -61,47 +61,16 @@ function Navbar() {
           </>
         );
       }
-    } else {
-      console.log("oogrdfew");
-      return (
-        <>
-          <Link
-            to="/loginstudent"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            LoginAsStudent
-          </Link>
-          <Link
-            to="/loginteacher"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            LoginAsTeacher
-          </Link>
-
-          <Link
-            to="/signupstudent"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            SignUpAsStudent
-          </Link>
-          <Link
-            to="/signupteacher"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            SignUpAsTeacher
-          </Link>
-        </>
-      );
     }
   };
   useEffect(() => {}, [state]);
 
   return (
-    <header className="bg-yellow-300 md:sticky top-0 z-10">
+    <header className="bg-primary md:sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link
           className="ml-3 text-xl title-font font-medium text-red mb-4 md:mb-0"
-          to={"/"}
+          to={"/home"}
         >
           <Link
             to={
@@ -109,7 +78,7 @@ function Navbar() {
                 ? state.role === "Student"
                   ? "/classjoined"
                   : "classcreated"
-                : "/"
+                : "/home"
             }
           >
             <h1> Online Classroom</h1>
@@ -125,7 +94,7 @@ function Navbar() {
           <button
             className={`${
               state ? "" : "hidden "
-            }bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded`}
+            } bg-red-600 hover:bg-gray-900 hover:text-white font-bold py-2 px-4 border  rounded`}
             onClick={() => {
               localStorage.clear();
               dispatch({ type: "CLEAR" });
@@ -141,3 +110,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
