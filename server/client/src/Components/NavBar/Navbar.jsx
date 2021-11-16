@@ -40,14 +40,14 @@ function Navbar() {
           <>
             <Link
               to="/joinclass"
-              className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium"
+              className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Join Class
             </Link>
 
             <Link
               to="/classjoined"
-              className=" hover:bg-gray-700  px-3 py-2 rounded-md text-sm font-medium"
+              className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Classes Joined
             </Link>
@@ -61,37 +61,6 @@ function Navbar() {
           </>
         );
       }
-    } else {
-      console.log("oogrdfew");
-      return (
-        <>
-          <Link
-            to="/loginstudent"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            LoginAsStudent
-          </Link>
-          <Link
-            to="/loginteacher"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            LoginAsTeacher
-          </Link>
-
-          <Link
-            to="/signupstudent"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            SignUpAsStudent
-          </Link>
-          <Link
-            to="/signupteacher"
-            className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-          >
-            SignUpAsTeacher
-          </Link>
-        </>
-      );
     }
   };
   useEffect(() => {}, [state]);
@@ -125,11 +94,11 @@ function Navbar() {
           <button
             className={`${
               state ? "" : "hidden "
-            }bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded`}
+            } bg-red-600 hover:bg-gray-900 hover:text-white font-bold py-2 px-4 border  rounded`}
             onClick={() => {
               localStorage.clear();
               dispatch({ type: "CLEAR" });
-              history.push("/home");
+              history.push("/");
             }}
           >
             LogOut
@@ -141,3 +110,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

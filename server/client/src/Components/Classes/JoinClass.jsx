@@ -41,13 +41,13 @@ const JoinClass = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-300">
-      <div className={"flex py-8 "}>
-        <div className="w-full max-w-md bg-blue-500 m-auto rounded-lg border border-gray-200 shadow-lg py-10 px-10 md:px-20">
-          <h2 className="text-2xl text-center pt-4 pb-5 text-primary	">
+    <div className="h-screen ">
+      <div className={" "}>
+        <div className="w-full max-w-md bg-primary m-auto my-4 rounded-lg border border-gray-200 shadow-lg py-10 px-10 md:px-20">
+          <h2 className="text-2xl text-center pt-4 pb-5	">
             Online Classroom
           </h2>
-          <h3 className="text-center  pb-5 text-primary	">Join a Class</h3>
+          <h3 className="text-center  pb-5 	">Join a Class</h3>
           <div>
             <label htmlFor="code">Class Code</label>
             <input
@@ -57,7 +57,7 @@ const JoinClass = () => {
               value={code}
               onChange={(e) => setCode(e.target.value)}
               className={
-                "w-full  p-2 text-primary rounded-md transition duration-150 ease-in-out mb-4"
+                "w-full  p-2  rounded-md transition duration-150 ease-in-out mb-4"
               }
             />
           </div>

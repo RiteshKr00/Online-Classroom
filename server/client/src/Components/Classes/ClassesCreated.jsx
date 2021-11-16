@@ -43,19 +43,21 @@ const ClassesCreated = () => {
             ) : (
               classes.map((item) => {
                 return (
-                  <div
-                    key={item._id}
-                    className="m-2 w-80 bg-primary rounded-lg border border-gray-200 shadow-lg py-2 px-10 md:px-20"
-                  >
-                    <h2 className="text-2xl hover:underline text-center pt-4 pb-5 	">
-                      <Link to={`/subjectdashboard/${item._id}`}>
-                        {" "}
-                        {item.name}
-                      </Link>
-                    </h2>
-                    <h3>Code : {item.code}</h3>
-                    <p>Description : {item.description}</p>
-                  </div>
+                  <Link to={`/subjectdashboard/${item._id}`}>
+                    <div
+                      key={item._id}
+                      className="m-2 w-80 bg-primary rounded-lg border border-gray-200 shadow-lg py-2 px-10 md:px-20"
+                    >
+                      <h2 className="text-2xl hover:underline text-center pt-4 pb-5 	">
+                        <Link to={`/subjectdashboard/${item._id}`}>
+                          {" "}
+                          {item.name}
+                        </Link>
+                      </h2>
+                      <h3>Code : {item.code}</h3>
+                      <p>Description : {item.description}</p>
+                    </div>
+                  </Link>
                 );
               })
             )

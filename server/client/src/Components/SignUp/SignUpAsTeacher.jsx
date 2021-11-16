@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import Teachersvg from "../../assets/teacher.svg";
 import Toast from "../Toast/Toast";
 const SignUpAsTeacher = () => {
   const [username, setUsername] = useState("");
@@ -32,12 +33,12 @@ const SignUpAsTeacher = () => {
         username: username,
         email: email,
         password: password,
-        role:"Teacher"
+        role: "Teacher",
       });
       console.log(response);
       console.log(response.data);
-       history.push("/loginteacher");
-       Toast(response.data.message, 1);
+      history.push("/loginteacher");
+      Toast(response.data.message, 1);
     } catch (err) {
       console.log(err);
       console.log(err.response);
@@ -47,13 +48,14 @@ const SignUpAsTeacher = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-300">
-      <div className={"flex py-8 "}>
-        <div className="w-full max-w-md bg-blue-500 m-auto rounded-lg border border-gray-200 shadow-lg py-10 px-10 md:px-20">
-          <h2 className="text-2xl text-center pt-4 pb-5 text-primary	">
-            Online Classroom
-          </h2>
-          <h3 className="text-center  pb-5 text-primary	">Teacher</h3>
+    <div className="h-screen">
+      <div className={" bg-secondary p-2 "}>
+        <div className="w-full max-w-md bg-primary m-auto rounded-lg border border-gray-200 shadow-lg py-3 px-10 md:px-20">
+          <h2 className="text-2xl text-center  ">
+            {" "}
+            <Link to={"/teacher"}>Teacher</Link>
+          </h2>{" "}
+          <img className="mx-auto max-w-md" src={Teachersvg} alt="dfsd" />
           <div>
             <label htmlFor="username">Username</label>
             <input
@@ -63,7 +65,7 @@ const SignUpAsTeacher = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               className={
-                "w-full p-2 text-primary rounded-md transition duration-150 ease-in-out mb-4"
+                "w-full p-2 rounded-md transition duration-150 ease-in-out mb-4"
               }
             />
           </div>
@@ -76,7 +78,7 @@ const SignUpAsTeacher = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={
-                "w-full  p-2 text-primary rounded-md transition duration-150 ease-in-out mb-4"
+                "w-full  p-2 rounded-md transition duration-150 ease-in-out mb-4"
               }
             />
           </div>
@@ -89,7 +91,7 @@ const SignUpAsTeacher = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className={
-                "w-full  p-2 text-primary rounded-md transition duration-150 ease-in-out mb-4"
+                "w-full  p-2 rounded-md transition duration-150 ease-in-out mb-4"
               }
             />
           </div>
@@ -107,8 +109,8 @@ const SignUpAsTeacher = () => {
             <h2>
               Already have an account ?
               <Link
-                to="/login"
-                className="text-gray-300  hover:text-red-500 px-3 py-2 rounded-md text-sm font-medium"
+                to="/loginteacher"
+                className="text-gray-900  hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium"
               >
                 Login
               </Link>

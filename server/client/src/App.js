@@ -53,31 +53,26 @@ const Routing = () => {
         <Route exact path="/signupstudent" component={SignUpAsStudent} />
         <Route exact path="/loginteacher" component={LoginAsTeacher} />
         <Route exact path="/loginstudent" component={LoginAsStudent} />
-        <ProtectedRoute exact path="/classcreated" component={ClassesCreated}/>
+        <ProtectedRoute exact path="/classcreated" component={ClassesCreated} />
         {/* <Route exact path="/classcreated">
           <ClassesCreated />
         </Route> */}
-        <Route exact path="/classjoined">
-          <ClassesJoined />
-        </Route>{" "}
-        <Route exact path="/createclass">
-          <CreateClass />
-        </Route>{" "}
-        <Route exact path="/joinclass">
-          <JoinClass />
-        </Route>
-        <Route exact path="/profile">
-          <Profile />
-        </Route>{" "}
-        <Route path="/subjectdashboard/:subjectId">
-          <SubjectDashboard />
-        </Route>
-        <Route path="/subjectdashboardstudent/:subjectId">
-          <SubjectDashboardStudent />
-        </Route>
-        <Route path="/createassignment/:subjectId">
-          <CreateAssignment />
-        </Route>
+        <ProtectedRoute exact path="/classjoined" component={ClassesJoined} />
+        <ProtectedRoute exact path="/createclass" component={CreateClass} />
+        <ProtectedRoute exact path="/joinclass" component={JoinClass} />
+        <ProtectedRoute exact path="/profile" component={Profile} />
+        <ProtectedRoute
+          path="/subjectdashboard/:subjectId"
+          component={SubjectDashboard}
+        />
+        <ProtectedRoute
+          path="/subjectdashboardstudent/:subjectId"
+          component={SubjectDashboardStudent}
+        />
+        <ProtectedRoute
+          path="/createassignment/:subjectId"
+          component={CreateAssignment}
+        />
       </Switch>
     </>
   );

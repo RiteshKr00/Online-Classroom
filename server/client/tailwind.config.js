@@ -9,6 +9,7 @@ module.exports = {
       tertiary: "#ffffff",
       black: colors.black,
       white: colors.white,
+      red: colors.rose,
       gray: colors.trueGray,
     },
     extend: {},

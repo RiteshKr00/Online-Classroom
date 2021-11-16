@@ -101,7 +101,7 @@ const LoginAsStudent = () => {
             <Link
               to="/resetpassword"
               className="text-gray-900  hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium"
-            >
+              >
               Forget Password ?
             </Link>
           </div>

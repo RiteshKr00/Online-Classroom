@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
+import Teachersvg from "../../assets/teacher.svg";
 import { UserContext } from "../../App";
 import Toast from "../Toast/Toast";
 const LoginAsTeacher = () => {
@@ -44,12 +45,13 @@ const LoginAsTeacher = () => {
 
   return (
     <div className="h-screen">
-      <div className={"flex  py-8 "}>
-        <div className="w-full max-w-md bg-blue-500 m-auto rounded-lg border border-gray-200 shadow-lg py-10 px-10 md:px-20">
-          <h2 className="text-2xl text-center pt-4 pb-5 text-primary	">
-            Online Classroom
-          </h2>
-          <h3 className="text-center  pb-5 text-primary	">Teacher</h3>
+      <div className={"bg-secondary p-2"}>
+        <div className="w-full max-w-md bg-primary m-auto rounded-lg border border-gray-200 shadow-lg py-5 px-10 md:px-20">
+          <h2 className="text-2xl text-center">Online Classroom</h2>
+          <h3 className="text-center  pb-5 text-primary	">
+            <Link to={"/student"}>Teacher</Link>
+          </h3>
+          <img className="mx-auto max-w-md" src={Teachersvg} alt="dfsd" />
           <div>
             <label htmlFor="username">Username</label>
             <input
@@ -91,7 +93,7 @@ const LoginAsTeacher = () => {
               Don't have an account ?
               <Link
                 to="/signupteacher"
-                className="text-gray-300  hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-900  hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium"
               >
                 SignUp
               </Link>
@@ -100,7 +102,7 @@ const LoginAsTeacher = () => {
           <div className="flex justify-center item-center">
             <Link
               to="/resetpassword"
-              className="text-gray-300  hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-900  hover:text-gray-400 px-3 py-2 rounded-md text-sm font-medium"
             >
               Forget Password ?
             </Link>
