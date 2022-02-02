@@ -83,7 +83,8 @@ exports.assignmentSubmit = async (req, res) => {
   } catch (err) {
     res.status(500).send({ err: err });
   }
-};exports.assignmentUnSubmit = async (req, res) => {
+};
+exports.assignmentUnSubmit = async (req, res) => {
   try {
     console.log(req.body.assignmentId);
     const student = await Student.findByIdAndUpdate(

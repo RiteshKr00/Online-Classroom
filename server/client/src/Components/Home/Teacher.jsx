@@ -40,6 +40,7 @@ const Teacher = () => {
                 Signup
               </Link>
             </div>{" "}
+           
           </div>
         </div>
       </div>

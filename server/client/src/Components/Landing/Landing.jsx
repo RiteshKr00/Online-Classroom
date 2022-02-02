@@ -7,7 +7,7 @@ const Landing = () => {
   const history = useHistory();
   if (state) {
     console.log(state.role);
-    if ((state.role === "Student")) {
+    if (state.role === "Student") {
       history.push("/classjoined");
     } else if (state.role === "Teacher") {
       history.push("/classcreated");
@@ -62,6 +62,18 @@ const Landing = () => {
                 Teacher
               </Link>
             </div>{" "}
+            <div className="text-center">
+              {" "}
+              <h5>or</h5>
+              <Link
+                to={"/chat"}
+                className={
+                  "bg-secondary hover:text-gray-500 rounded hover:bg-black active:bg-secondary"
+                }
+              >
+                <h1>Join Global Chat👨‍💻</h1>{" "}
+              </Link>
+            </div>
           </div>
         </div>
       </div>

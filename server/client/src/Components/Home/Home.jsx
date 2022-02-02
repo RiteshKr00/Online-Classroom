@@ -14,7 +14,6 @@ const Home = () => {
             <h2 className="text-2xl text-center pt-8 pb-5 	">
               Online Classroom
             </h2>
-           
             <div className="flex justify-center item-center">
               <button
                 className={

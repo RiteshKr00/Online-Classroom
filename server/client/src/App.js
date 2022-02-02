@@ -21,6 +21,9 @@ import Landing from "./Components/Landing/Landing";
 import Student from "./Components/Home/Student";
 import Teacher from "./Components/Home/Teacher";
 import ProtectedRoute from "./Components/Protected/ProtectedRoutes";
+import Chat from "./Components/Chat/Chat";
+import ChatWindow from "./Components/Chat/ChatWindow";
+
 export const UserContext = createContext();
 const Routing = () => {
   const history = useHistory();
@@ -48,7 +51,9 @@ const Routing = () => {
         <Route exact path="/" component={Landing} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/teacher" component={Teacher} />
-        <Route exact path="/student" component={Student} />
+        <Route exact path="/student" component={Student} />{" "}
+        <Route exact path="/Chat" component={Chat} />
+        <Route exact path="/chatwindow" component={ChatWindow} />
         <Route exact path="/signupteacher" component={SignUpAsTeacher} />
         <Route exact path="/signupstudent" component={SignUpAsStudent} />
         <Route exact path="/loginteacher" component={LoginAsTeacher} />
